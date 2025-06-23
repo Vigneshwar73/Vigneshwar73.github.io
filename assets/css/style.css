@@ -573,6 +573,14 @@ section .container {
   margin: 0 auto;        /* Optional: Center align */
 }
 
+.proj-logo {
+  max-height: 100px;     /* Set the desired uniform height */
+  width: auto;           /* Maintain aspect ratio */
+  object-fit: contain;   /* Prevent stretching */
+  display: block;
+  margin: 0 auto;        /* Optional: Center align */
+}
+
 .testimonials .owl-nav, .testimonials .owl-dots {
   margin-top: 5px;
   text-align: center;
