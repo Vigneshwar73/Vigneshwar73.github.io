@@ -4,7 +4,7 @@ Vigneshwar Karunanithi
 
 Cloned from:
 
-> https://github.com/rajaprerak/rajaprerak.github.io
+> https://rajaprerak.github.io/
 
 ## License
 
