@@ -574,7 +574,7 @@ section .container {
 }
 
 .proj-logo {
-  max-height: 100px;     /* Set the desired uniform height */
+  max-height: 200px;     /* Set the desired uniform height */
   width: auto;           /* Maintain aspect ratio */
   object-fit: contain;   /* Prevent stretching */
   display: block;
