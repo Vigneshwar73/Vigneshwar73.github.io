@@ -605,6 +605,13 @@ section .container {
   }
 }
 
+.same-size {
+    width: 300px;
+    height: 200px;
+    object-fit: cover; /* adjusts the image to fit the box */
+  }
+
+
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
