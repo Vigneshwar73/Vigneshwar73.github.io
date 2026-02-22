@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('portfolio-theme');
+        document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+      } catch (e) {}
+    })();
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -58,38 +66,46 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BB8W2X"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <!-- ======= Header ======= -->
-  <header id="header" class="header-tops">
-
+  <!-- ======= Header (fixed nav) ======= -->
+  <header id="header">
     <div class="container">
-
-      <h1><a href="index.html">Vigneshwar Karunanithi</a></h1>
-      <h2 style="color:#fff">I'm a <span class="typing" style="color:#12D640"></span></h2>
+      <h1><a href="#hero">Vigneshwar Karunanithi</a></h1>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#header"> <span>Home</span></a></li>
+          <li class="active"><a href="#hero"><span>Home</span></a></li>
           <li><a href="#about"><span>About</span></a></li>
-          <li><a href="#education"> <span>Education</span></a></li>
-          <li><a href="#experience"> <span>Experience</span></a></li>
-<!--          <li><a href="#projects"> <span>Projects</span></a></li>-->
-          <li><a href="#portfolio"> <span>Projects</span></a></li>
-          <li><a href="#skills"> <span>Skills</span></a></li>
-          <li><a href="https://drive.google.com/file/d/1w29zOkvmbuhvMzktbQwIJ1fN37iFcAyp/view?usp=sharing" target="_blank"> <span>Resume</span></a></li>
-          <!-- <li><a href="#links"> <span>Resume & Links</span></a></li> -->
-          <li><a href="#contacts"> <span>Contact</span></a></li>
-
+          <li><a href="#education"><span>Education</span></a></li>
+          <li><a href="#experience"><span>Experience</span></a></li>
+          <li><a href="#portfolio"><span>Projects</span></a></li>
+          <li><a href="#skills"><span>Skills</span></a></li>
+          <li><a href="https://drive.google.com/file/d/1w29zOkvmbuhvMzktbQwIJ1fN37iFcAyp/view?usp=sharing" target="_blank"><span>Resume</span></a></li>
+          <li><a href="#contacts"><span>Contact</span></a></li>
         </ul>
-      </nav><!-- .nav-menu -->
-
+      </nav>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <i class="ri-moon-line icon-moon"></i>
+        <i class="ri-sun-line icon-sun"></i>
+      </button>
       <div class="social-links">
-          <a href="https://www.linkedin.com/in/vigneshwar-k/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://github.com/Vigneshwar73" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-          <a href="mailto:vigneshwar0309@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
-
+        <a href="https://www.linkedin.com/in/vigneshwar-k/" target="_blank" class="linkedin" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://github.com/Vigneshwar73" target="_blank" class="github" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+        <a href="mailto:vigneshwar0309@gmail.com" target="_blank" class="google" aria-label="Email"><i class="bx bxl-google"></i></a>
       </div>
-
     </div>
-  </header><!-- End Header -->
+  </header>
+
+  <!-- ======= Hero ======= -->
+  <section id="hero">
+    <div class="hero-inner">
+      <h1><a href="#hero">Vigneshwar Karunanithi</a></h1>
+      <p class="tagline">I'm a <span class="typing"></span></p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/vigneshwar-k/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://github.com/Vigneshwar73" target="_blank" class="github"><i class="bx bxl-github"></i></a>
+        <a href="mailto:vigneshwar0309@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
+      </div>
+    </div>
+  </section>
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
@@ -202,12 +218,11 @@
           <div class="row">
 
             <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
-              <img src="assets/img/education/UT2.png" class="img-fluid same-size" alt="" style="background-color: #fff;">
-              <!-- <h4 style="text-align:left;"><a href="https://www.asu.edu/" target="_blank" style="color:#12d640">Arizona State University</a><br> </h4> -->
-              <p style="text-align:left;color:#fff;padding: 5px 10px;font-size: 1.25rem;"><em>MS in Robotics - Algorithms and Software AI specialization</em></p>
+              <img src="assets/img/education/UT2.png" class="img-fluid same-size edu-logo-bg" alt="">
+              <p style="text-align:left;padding: 5px 10px;font-size: 1.25rem;"><em>MS in Robotics - Algorithms and Software AI specialization</em></p>
               <h5 style="text-align:left;padding: 0px 10px;">September 2023 - Present</h5>
-              <h6 style="text-align:left;color:#fff;padding: 0px 10px;">Relevant Coursework</h6>
-              <ul style="text-align:left;color:#fff;">
+              <h6 style="text-align:left;padding: 0px 10px;">Relevant Coursework</h6>
+              <ul style="text-align:left;">
                 <li>Image Processing and Computer Vision</li>
                 <li>Natural Language Processing</li>
                 <li>Deep Learning</li>
@@ -221,11 +236,11 @@
               </ul>
             </div>
             <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
-              <img src="assets/img/education/NITT.png" class="img-fluid same-size" alt="" style="background-color: #fff;">
-              <p style="text-align:left;color:#fff;padding: 5px 10px;font-size: 1.25rem;"><em>B.Tech. in Instrumentation and Control Engineering</em></p>
+              <img src="assets/img/education/NITT.png" class="img-fluid same-size edu-logo-bg" alt="">
+              <p style="text-align:left;padding: 5px 10px;font-size: 1.25rem;"><em>B.Tech. in Instrumentation and Control Engineering</em></p>
               <h5 style="text-align:left;padding: 0px 10px;">July 2017 - May 2021</h5>
-              <h6 style="text-align:left;color:#fff;padding: 0px 10px;">Relevant Coursework</h6>
-              <ul style="text-align:left;color:#fff;">
+              <h6 style="text-align:left;padding: 0px 10px;">Relevant Coursework</h6>
+              <ul style="text-align:left;">
                 <li>Data Structures &amp; Algorithms</li>
                 <li>Database Management Systems</li>
                 <li>Operating Systems</li>
@@ -344,9 +359,9 @@
       <div class="row">
           <div class="col-lg-12" data-aos="fade-up">
               <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <h4 style="text-align:left;"><a href="https://www.fugro.com/" style="color:#12d640">Fugro N.V.</a><br> </h4>
+                <h4 style="text-align:left;"><a href="https://www.fugro.com/">Fugro N.V.</a><br> </h4>
                 <h5 style="text-align:left;">January 2025 - Present</h5>
-                <p style="text-align:left;color:#fff"><em>Graduate Research Student - Computer vision </em></p>
+                <p style="text-align:left;"><em>Graduate Research Student - Computer vision </em></p>
                 <ul style="text-align:left;">
                   <li>The master's thesis is a collaboration between the University of Twente and Fugro N.V., focusing on domain adaptive object detection for maritime simulation images to leverage simulation data for real-world maritime object detection.</li>
                   <li>Researched domain adaptation techniques to improve object detection performance when transferring simulated to real-world maritime images with differing visual domains. </li>
@@ -355,9 +370,9 @@
                 </ul>
               </div>
               <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <h4 style="text-align:left;"><a href="https://www.fugro.com/" style="color:#12d640">Fugro N.V.</a><br> </h4>
+                <h4 style="text-align:left;"><a href="https://www.fugro.com/">Fugro N.V.</a><br> </h4>
                 <h5 style="text-align:left;">September 2024 - December 2024</h5>
-                <p style="text-align:left;color:#fff"><em>Computer Vision Intern</em></p>
+                <p style="text-align:left;"><em>Computer Vision Intern</em></p>
                 <ul style="text-align:left;">
                   <li>Worked on the object detection module of an Unmanned Surface Vessel (USV).</li>
                   <li>Conducted feasibility analysis on the utilisation of simulation engines for the autonomous navigation task.</li>
@@ -367,9 +382,9 @@
                 </ul>
               </div>
               <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <h4 style="text-align:left;"><a href="https://www.ltts.com/" style="color:#12d640">L&amp;T Technology Services</a><br> </h4>
+                <h4 style="text-align:left;"><a href="https://www.ltts.com/">L&amp;T Technology Services</a><br> </h4>
                 <h5 style="text-align:left;">May 2021 - July 2023</h5>
-                <p style="text-align:left;color:#fff"><em>Embedded AI engineer</em></p>
+                <p style="text-align:left;"><em>Embedded AI engineer</em></p>
                 <ul style="text-align:left;">
                   <li>Worked as part of the embedded-AI team of the Industrial Products business unit. Worked on several research projects and proof-of-concept projects in the domains of artificial intelligence, computer vision and embedded systems.</li>
                   <li>Worked on several research project and proof-of-concept projects in the domains of computer vision and embedded-AI</li>
@@ -377,9 +392,9 @@
                 </ul>
               </div>
               <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <h4 style="text-align:left;"><a href="https://www.nitt.edu/" target="_blank" style="color:#12d640">National Institute of Technology, Tiruchirappalli</a><br> </h4>
+                <h4 style="text-align:left;"><a href="https://www.nitt.edu/" target="_blank">National Institute of Technology, Tiruchirappalli</a><br> </h4>
                 <h5 style="text-align:left;">May 2020 - September 2020</h5>
-                <p style="text-align:left;color:#fff"><em>Research Assistant</em></p>
+                <p style="text-align:left;"><em>Research Assistant</em></p>
                 <ul style="text-align:left;">
                   <li>Researched about Intelligent transportation systems using network control systems. </li>
                   <li>Built models of connected vehicles/robots; Analysed amd optimised the interconnection/performance using graph theory for networked systems</li>
@@ -697,8 +712,8 @@
       </div>
       <div class="row">
         <div class="col-lg-12" data-aos="fade-up">
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="background:#fff">
-            <h4 style="text-align:left;color:#09203a">Programming and Tools</h4>
+          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <h4 style="text-align:left;">Programming and Tools</h4>
               <p style="text-align:left;">
                 <img src="https://www.vectorlogo.zone/logos/python/python-horizontal.svg" alt="Python" height="50">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" alt="C" height="50">
@@ -709,16 +724,16 @@
                 <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg" alt="AWS" height="50">
               </p>
             </div>
-            <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="lefade-up" data-aos-delay="100" style="background:#fff">
-              <h4 style="text-align:left;color:#09203a">Robotics and Simulation tools</h4>
+            <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="lefade-up" data-aos-delay="100">
+              <h4 style="text-align:left;">Robotics and Simulation tools</h4>
                 <p style="text-align:left;">
                   <img src="https://www.vectorlogo.zone/logos/ros/ros-ar21.svg" alt="ROS2" height="50">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="MATLAB/Simulink" height="50">
                   <img src="https://www.freertos.org/img/FreeRTOS-html5-logo.svg" alt="FreeRTOS" height="50">
                 </p>
           </div>
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="lefade-up" data-aos-delay="100" style="background:#fff">
-              <h4 style="text-align:left;color:#09203a">Computer vision and AI</h4>
+          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="lefade-up" data-aos-delay="100">
+              <h4 style="text-align:left;">Computer vision and AI</h4>
                 <p style="text-align:left;">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png" alt="PyTorch" height="50">
                   <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="TensorFlow" height="50">
@@ -753,7 +768,7 @@
         <h4 class="title">
           <a href="assets/file/resume.pdf" target="_blank" download>Resume</a>
         </h4>
-        <p class="description" style="color:#fff;">
+        <p class="description">
           Click to view or download my latest resume in PDF format.
         </p>
       </div>

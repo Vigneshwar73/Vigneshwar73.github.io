@@ -1,67 +1,64 @@
 /**
-* Template Name: Personal - v2.1.0
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Single-page portfolio: smooth scroll, theme toggle, scroll-spy
 */
 !(function($) {
   "use strict";
 
-  // Nav Menu
+  // Smooth scroll for same-page anchor links (CSS scroll-behavior + scroll-margin handle the rest)
   $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var hash = this.hash;
-      var target = $(hash);
+    var href = $(this).attr('href');
+    if (href && href.indexOf('#') === 0 && href.length > 1) {
+      var target = $(href);
       if (target.length) {
         e.preventDefault();
-
-        if ($(this).parents('.nav-menu, .mobile-nav').length) {
-          $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-          $(this).closest('li').addClass('active');
-        }
-
-        if (hash == '#header') {
-          $('#header').removeClass('header-top');
-          $("section").removeClass('section-show');
-          return;
-        }
-
-        if (!$('#header').hasClass('header-top')) {
-          $('#header').addClass('header-top');
-          setTimeout(function() {
-            $("section").removeClass('section-show');
-            $(hash).addClass('section-show');
-          }, 350);
-        } else {
-          $("section").removeClass('section-show');
-          $(hash).addClass('section-show');
-        }
-
+        target[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        $('.nav-menu .active, .mobile-nav .active').removeClass('active');
+        $(this).closest('li').addClass('active');
         if ($('body').hasClass('mobile-nav-active')) {
           $('body').removeClass('mobile-nav-active');
           $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
           $('.mobile-nav-overly').fadeOut();
         }
-
-        return false;
-
       }
     }
   });
 
-  // Activate/show sections on load with hash links
-  if (window.location.hash) {
-    var initial_nav = window.location.hash;
-    if ($(initial_nav).length) {
-      $('#header').addClass('header-top');
-      $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-      $('.nav-menu, .mobile-nav').find('a[href="' + initial_nav + '"]').parent('li').addClass('active');
-      setTimeout(function() {
-        $("section").removeClass('section-show');
-        $(initial_nav).addClass('section-show');
-      }, 350);
-    }
+  // Scroll-spy: set active nav item based on scroll position
+  function updateActiveSection() {
+    var scrollTop = $(window).scrollTop();
+    var headerH = $('#header').outerHeight();
+    $('section[id]').each(function() {
+      var top = $(this).offset().top - headerH - 30;
+      var bottom = top + $(this).outerHeight();
+      if (scrollTop >= top && scrollTop < bottom) {
+        var id = $(this).attr('id');
+        $('.nav-menu .active, .mobile-nav .active').removeClass('active');
+        $('.nav-menu a[href="#' + id + '"], .mobile-nav a[href="#' + id + '"]').parent('li').addClass('active');
+        return false;
+      }
+    });
   }
+  $(window).on('scroll', updateActiveSection);
+  $(window).on('load', updateActiveSection);
+  if (window.location.hash) {
+    var $target = $(window.location.hash);
+    if ($target.length) $target[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Theme toggle (light / dark)
+  var themeKey = 'portfolio-theme';
+  function getStoredTheme() {
+    try { return localStorage.getItem(themeKey) || 'dark'; } catch (e) { return 'dark'; }
+  }
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem(themeKey, theme); } catch (e) {}
+  }
+  document.documentElement.setAttribute('data-theme', getStoredTheme());
+  $(document).on('click', '#theme-toggle', function() {
+    var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    setTheme(next);
+  });
 
   // Mobile Navigation
   if ($('.nav-menu').length) {
